@@ -1,0 +1,15 @@
+@font-face {
+    font-family: titulos;
+    src: url(../fonts/sfdistantgalaxy.ttf);
+}
+@font-face {
+    font-family: texto;
+    src: url(../fonts/roboto-regular.ttf);
+}
+body{
+    font-family: texto; 
+}
+nav, h1, h2, h3 {
+    font-family: titulos;
+    font-weight: 100;
+}
