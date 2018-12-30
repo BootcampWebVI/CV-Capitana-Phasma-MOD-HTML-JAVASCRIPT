@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="./js/app.js" type="module"></script>
     <title>CV Capitana Phasma</title>
 </head>
 <body>
@@ -16,12 +18,15 @@
             que se emplea para crear efectos interactivos dentro de los navegadores web.</p>
         <p><a href="https://goo.gl/koeeaJ">¿Cómo activar JavaScript?</a></p>
     </noscript>
-    <header>
+    <header class="navegacion">
         <h1></h1>
-        <nav></nav>
-        <nav>
+        <nav class="boton-menu">
+            <a href="#menu-superior" id="abrir" class="fas fa-bars fa-lg"></a>
+            <a href="#" id="cerrar" class="fas fa-times fa-lg hide"></a>
+        </nav>
+        <nav class="desplegable hide" id="menu-superior">
             <ul>
-                <li><a href="./index.html#home">Home</a></li>
+                <li><a href="./index.html#home" class="activo">Home</a></li>
                 <li><a href="./index.html#quien-soy">Quién soy</a></li>
                 <li><a href="./index.html#estudios">Mis estudios</a></li>
                 <li><a href="./index.html#experiencia">Mi experiencia</a></li>
@@ -31,12 +36,14 @@
         </nav>
     </header>
     <main>
-        <section id="home">
-            <header>
-                <h2>Capitana Phasma</h2>
-                <p>¿Quieres saber más de mí?</p>
-            </header>
-            <p>(No olvidar animación css)</p>
+        <section id="home" class="home">
+            <div class="home-wrapper">
+                <header>
+                    <h2>Capitana Phasma</h2>
+                    <p>¿Quieres saber más de mí?</p>
+                </header>
+                <p>(No olvidar animación css)</p>
+            </div>
         </section>
         <section id="quien-soy">
             <header>
@@ -120,7 +127,7 @@
                 <p>Conóceme más y descubre algunas de mis aficiones.</p>
             </header>
             <p>Aunque puedo parecer implacable al final soy como cualquier otro miembro del lado oscuro.</p>
-            <p>Mis puntos fuertes son la impaciencia, la pasión por el trabajo bien hecho y por encima de todo mi crueldad sanguinolenta.</p> 
+            <p>Mis puntos fuertes son la paciencia, la pasión por el trabajo bien hecho y por encima de todo mi crueldad sanguinolenta.</p> 
             <p>Mis aficiones son el tiro al ewok, las apuestas en peleas de rankors, y las competiciones de desmembramiento de jawas.</p> 
             <p>En mis ratos libres disfruto despellejando porgs, sólo por diversión. Chewbacca es un blando. </p>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/3JiUDoRM_dI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -128,13 +135,15 @@
         </section>
         <section id="contacto">
             <header>
-                <h2>Seguro que podemos hacer grandes cosas juntos</h2>
+                <h2>Contacto</h2>
+                <p>Seguro que podemos hacer grandes cosas juntos</p>
                 <p>Si te ha gustado lo que has visto y me quieres en tu equipo no dudes en ponerte en contacto conmigo.</p>
             </header>
-            <form>
+            <form id="formulario">
                 <ul>
+                    <li id="tooltip"><p id="tooltip-text" class="tooltip"></p></li>
                     <li class="form-group">
-                        <input type="text" name="nombre" id="nombre" placeholder="Rellene su nombre completo" required>
+                        <input type="text" name="nombre" id="nombre" placeholder="Rellene su nombre completo">
                     </li>
                     <li class="form-group">
                         <input type="email" name="email" id="email" placeholder="Dirección email">
@@ -145,29 +154,29 @@
                     <li class="form-group">
                         <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="¿Algo que añadir?"></textarea>
                     </li>
-                    <li>
+                    <li class="form-group">
                         <input type="checkbox" name="condiciones" id="condiciones">
-                        <label for="condiciones">Acepto las <a href="#">condiciones</a></label>
+                        <label class="check" for="condiciones">Acepto las <a href="#">condiciones</a></label>
                     </li>
-                    <li>
+                    <li class="form-group">
                         <legend>Al grano. ¿Qué quieres de mí?</legend>
                         <div>
                             <input type="radio" name="opciones" id="puesto" value="puesto">
-                            <label for="puesto">Ofrecerte un puesto relevante en mi destacamento.</label>
+                            <label class="radio" for="puesto">Ofrecerte un puesto relevante en mi destacamento.</label>
                         </div>
                         <div>
                             <input type="radio" name="opciones" id="colaboracion" value="colaboración">
-                            <label for="colaboracion">Entrar en contacto para futuras colaboraciones</label>
+                            <label class="radio" for="colaboracion">Entrar en contacto para futuras colaboraciones</label>
                         </div>
                     </li>
-                    <li>
-                        <label for="selection">¿Cómo me has conocido?</label>
-                        <select name="selection" id="selection">
+                    <li class="form-group">
+                        <label for="seleccion">¿Cómo me has conocido?</label>
+                        <select name="seleccion" id="seleccion">
                             <option value="" selected></option>
                             <option value="comandancia de la primera orden">Comandancia de la primera orden</option>
                             <option value="tropa de asalto">Tropa de asalto</option>
                             <option value="escoria rebelde">Escoria rebelde</option>
-                            <option id="input-extra" value="otros">Otros</option>
+                            <option id="otros" value="otros">Otros</option>
                         </select>
                     </li>
                 </ul>
@@ -175,16 +184,7 @@
             </form>
         </section>
     </main>
-    <footer>    
-        <nav id="menu-bottom" class="menu-bottom content-wrapper">
-            <ul>
-                <li><a href="./index.html#home">Home</a></li>
-                <li><a href="./index.html#quien-soy">Quién soy</a></li>
-                <li><a href="./index.html#estudios">Mis estudios</a></li>
-                <li><a href="./index.html#experiencia">Mi experiencia</a></li>
-                <li><a href="./index.html#datos-interes">Otros datos de interés</a></li>
-                <li><a href="./index.html#contacto">Contacto</a></li>
-            </ul>
+    <footer>
         <nav>
             <ul>
                 <li>
@@ -215,5 +215,6 @@
         </nav>
         <p>© Capitana Phasma 2019</p>
     </footer> 
+
 </body>
 </html>

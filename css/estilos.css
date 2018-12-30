@@ -6,10 +6,257 @@
     font-family: texto;
     src: url(../fonts/roboto-regular.ttf);
 }
-body{
-    font-family: texto; 
+:root {
+    --color-texto: black;
+    --color-fondo: white;
+    --color-aux: gray;
+    --color:  rgb(124, 16, 32);
 }
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: texto; 
+    color: var(--color-texto);
+}
+
 nav, h1, h2, h3 {
     font-family: titulos;
     font-weight: 100;
 }
+strong, a:link{
+    color: var(--color);
+    font-weight: bold;
+    text-decoration: none
+}
+a:visited{
+    color: var(--color);
+    text-decoration: underline
+}
+/* ---------------------------- *\
+   Estilos menú principal móvil 
+\* ---------------------------- */
+nav a.hide {
+    display: none !important;
+}
+.navegacion {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+.boton-menu {
+    position: absolute;
+    width: 100%;
+    z-index: 15;
+    color: var(--color-fondo);
+    background-color: var(--color);
+    padding: 0.3rem;
+}
+.boton-menu a {
+    float: right;
+    color: var(--color-fondo);
+    text-decoration: none;
+    padding: 5px;
+}
+.boton-menu a.fa-lg {
+    font-size: 1.5em !important;
+}
+.desplegable {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    background-color: var(--color);
+    opacity: 0.9;
+    height: 230px;
+    transition: all 0.5s ease-in-out;
+}
+.desplegable.hide {
+    margin-top: -230px;
+    position: relative;
+}
+.desplegable ul {
+    padding: 2.7rem 2rem 3rem 2rem;
+}
+.desplegable ul li {
+    
+    border-bottom: 1px solid var(--color-fondo);
+}
+.desplegable ul li:last-child {
+    border-bottom: 0px;
+}
+.desplegable ul a {
+    display: inline-block;
+    padding: 0.3rem 0.2rem;
+    color: var(--color-fondo);
+    text-decoration: none;
+}
+.desplegable ul a.activo {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+/* -------------------------------- *\
+   FIN Estilos menú principal móvil 
+\* -------------------------------- */
+
+
+section {
+    margin: 0 1rem;
+}
+main header {
+    padding: 1rem 0 0.5rem 0; 
+}
+iframe {
+    width: 100%;
+    height: 50vh;
+}
+p {
+    padding: 0.5rem 0; 
+}
+section{
+    padding-top: 50px;
+}
+section.home {
+    margin: 0;
+    height: 100vh;
+    background-image: url(../images/Phasma_portada.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; 
+    color: var(--color-fondo);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.home-wrapper header {
+    text-align: center;  
+}
+section.home header h2 {
+}
+.form-group {
+    margin-bottom: 0.7rem
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 1rem;
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus,
+form select:focus {
+    width: 100%;
+    border: 2px solid var(--color);
+    outline: var(--color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.5rem
+}
+input[type=checkbox],
+input[type=radio] {
+	display:none; 
+}
+input[type=checkbox] + label.check, 
+input[type=radio] + label.radio {
+	cursor: pointer;
+}
+label.check {
+    height: 21px;
+}
+label.check:before {
+    content: "";
+    display: block;
+	background: transparent;
+	border: 1px solid gray;
+	border-radius: 3px;
+	display: inline-block;
+	height: 15px;
+	margin-right: 10px;
+	text-align: center;
+	vertical-align: start;
+    width: 15px;
+    font-size: 14px;
+}
+input[type=checkbox]:checked + label.check:before {
+    content: 'X';
+    font-size: 14px;
+    font-weight: 900;
+	color: gray;
+    font-family: "texto";
+}
+label.radio:before {
+    content: "";
+    display: block;
+	background: transparent;
+	border: 1px solid gray;
+	border-radius: 10px;
+	display: inline-block;
+	height: 15px;
+	margin-right: 10px;
+	text-align: center;
+	vertical-align: start;
+    width: 15px;
+    font-size: 14px;
+}
+input[type=radio]:checked + label.radio:before {
+    content: '*';
+    font-size: 14px;
+    font-weight: 900;
+	color: gray;
+    font-family: "texto";
+}
+
+@media (min-width: 480px) and (max-width: 767px)  {
+    
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .boton-menu{
+        display: none;
+    }
+    body header nav.desplegable.hide{
+        position: fixed;
+        margin-top: 0;
+        height: 100vh;
+        width: 200px;
+        background-color: rgb(124, 16, 32)
+    }
+    .desplegable ul {
+        padding: 2.2rem 1rem 3rem 1rem;
+    }
+    main{
+        margin-left:200px;
+    }
+}
+
+@media (min-width: 1024px) { 
+    .boton-menu{
+        display: none;
+    }
+    body header nav.desplegable.hide{
+        position: fixed;
+        margin-top: 0;
+        height: 100vh;
+        width: 200px;
+        background-color: rgb(124, 16, 32)
+    }
+    .desplegable ul {
+        padding: 2.2rem 1rem 3rem 1rem;
+    }
+    main{
+        margin-left:200px;
+    }
+    
+}
+
+
