@@ -98,10 +98,10 @@ nav a.hide {
     text-decoration: none;
     font-size: 1.2rem;
 }
+
 /* -------------------------------- *\
    FIN Estilos menú principal móvil 
 \* -------------------------------- */
-
 
 section {
     margin: 0 1rem;
@@ -139,6 +139,12 @@ section.home header h2 {
 }
 .form-group {
     margin-bottom: 0.7rem
+}
+.form-group .invisible{
+    display: none;
+}
+.form-group .visible{
+    display: block;
 }
 form input[type="text"],
 form input[type="email"],
@@ -183,7 +189,6 @@ label.check:before {
 	height: 15px;
 	margin-right: 10px;
 	text-align: center;
-	vertical-align: start;
     width: 15px;
     font-size: 14px;
 }

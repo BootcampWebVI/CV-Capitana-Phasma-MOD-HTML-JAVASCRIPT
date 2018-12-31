@@ -24,15 +24,12 @@ export class FormContacto {
         }
         
         this.oFormContacto.addEventListener('submit', this.leerContacto.bind(this)) 
-        this.oSelectOtros.addEventListener('click', this.mostrarInputExtra.bind(this)) 
+        this.oSelectSeleccion.addEventListener('change', this.mostrarInputExtra.bind(this)) 
 
         
 
     }
-    mostrarInputExtra(){
-
-    }
-
+    
     leerContacto(objetoEvento) {
         console.log('pasa por leerContacto')
         objetoEvento.preventDefault()
@@ -52,10 +49,7 @@ export class FormContacto {
             opciones: this.getRadio(this.oRadioOpciones),
             seleccion: this.oSelectSeleccion.options[this.oSelectSeleccion.selectedIndex].value
         }
-        console.dir(this.oData)
-        
     }
-
     getRadio(aNodos) {
         let value
         aNodos.forEach(
@@ -68,6 +62,7 @@ export class FormContacto {
         console.log('pasa por validar')
         this.validarNombre()
         this.validarEmail()
+        this.validarTelefono()
         this.validarTextarea(10) 
         this.validarCheckbox()
         this.validarSelect()
@@ -98,7 +93,6 @@ export class FormContacto {
         console.log('pasa por validar telefono')
         let telefono = this.oInputTelefono.value
         if ( !(/^([0-9])*$/.test(telefono)) ){
-            console.log( typeof telefono)
             this.oTooltipText.innerHTML = 'El teléfono tiene que tener 9 dígitos'
             this.oTooltip.classList.add('visible')
             return false
@@ -106,7 +100,6 @@ export class FormContacto {
             return true
         }
     }
-
     validarTextarea(maxNumeroPalabras){
         console.log('pasa por validar textarea')
         let palabrasMensaje = this.oTextoMensaje.value
@@ -151,4 +144,12 @@ export class FormContacto {
             return true
         }
     }
+    mostrarInputExtra(evento){
+        console.log('Estoy en mostrarInputExtra: ',evento.target.value )
+        if( evento.target.value == 'otros'){
+            this.oSelectOtros.classList.add('visible')
+            console.log('Estoy en otros')
+        }
+    }
+
 }
