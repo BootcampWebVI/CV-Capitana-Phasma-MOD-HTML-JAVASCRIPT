@@ -168,58 +168,6 @@ form select:focus {
     padding: 1rem;
     margin-bottom: 0.5rem
 }
-input[type=checkbox],
-input[type=radio] {
-	display:none; 
-}
-input[type=checkbox] + label.check, 
-input[type=radio] + label.radio {
-	cursor: pointer;
-}
-label.check {
-    height: 21px;
-}
-label.check:before {
-    content: "";
-    display: block;
-	background: transparent;
-	border: 1px solid gray;
-	border-radius: 3px;
-	display: inline-block;
-	height: 15px;
-	margin-right: 10px;
-	text-align: center;
-    width: 15px;
-    font-size: 14px;
-}
-input[type=checkbox]:checked + label.check:before {
-    content: 'X';
-    font-size: 14px;
-    font-weight: 900;
-	color: gray;
-    font-family: "texto";
-}
-label.radio:before {
-    content: "";
-    display: block;
-	background: transparent;
-	border: 1px solid gray;
-	border-radius: 10px;
-	display: inline-block;
-	height: 15px;
-	margin-right: 10px;
-	text-align: center;
-	vertical-align: start;
-    width: 15px;
-    font-size: 14px;
-}
-input[type=radio]:checked + label.radio:before {
-    content: '*';
-    font-size: 14px;
-    font-weight: 900;
-	color: gray;
-    font-family: "texto";
-}
 
 @media (min-width: 480px) and (max-width: 767px)  {
     

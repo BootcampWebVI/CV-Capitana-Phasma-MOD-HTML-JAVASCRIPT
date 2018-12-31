@@ -61,47 +61,11 @@ export class FormContacto {
     }
     
     validar() {
-        console.log('pasa por validar')
-        if (this.validarNombre(this.validarEmail(this.validarTelefono()))){
+        if (this.validarTextarea(10)){
             return true
         }
     }
-    validarNombre(validarSiguiente){
-        console.log('pasa por validar nombre')
-        if ( this.oInputNombre.value == null || this.oInputNombre.value.length == 0 || /^\s+$/.test(this.oInputNombre.value) ) {
-            this.oTooltipText.innerHTML = 'El nombre es obligatorio'
-            this.oTooltip.classList.add('visible')
-            console.log('devuelve nombre false')
-            return false
-        } else {
-            validarSiguiente()
-            console.log('devuelve nombre true')
-            return true
-        }
-    }
-    validarEmail(validarSiguiente) {
-        console.log('pasa por validar email')
-        let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
-         if ( !(regexEmail.test(this.oInputEmail.value)) ) {
-            this.oTooltipText.innerHTML = 'El email es obligatorio'
-            this.oTooltip.classList.add('visible')
-            return false
-        } else {
-            validarSiguiente()
-            return true
-        }
-    }
-    validarTelefono(){
-        console.log('pasa por validar telefono')
-        let telefono = this.oInputTelefono.value
-        if ( !(/^([0-9])*$/.test(telefono)) ){
-            this.oTooltipText.innerHTML = 'El teléfono tiene que tener 9 dígitos'
-            this.oTooltip.classList.add('visible')
-            return false
-        } else {
-            return true
-        }
-    }
+   
     validarTextarea(maxNumeroPalabras){
         console.log('pasa por validar textarea')
         let palabrasMensaje = this.oTextoMensaje.value
@@ -113,39 +77,10 @@ export class FormContacto {
             console.log('longitud array palabras: ', numeroPalabras)
             return false
         } else {
-            this.validarAnterior = true
+            return true
         }
     }
-    validarCheckbox(){
-        console.log('pasa por validar checkbox')
-        if (!this.oCheckCondiciones.checked){
-            this.oTooltipText.innerHTML = 'Tienes que acceptar las condiciones antes de continuar'
-            this.oTooltip.classList.add('visible')
-            return false
-        } else {
-            this.validarAnterior = true
-        }
-    }
-    validarRadio(){
-        console.log('pasa por validar radio')
-        if (!this.getRadio(this.oRadioOpciones)){
-            this.oTooltipText.innerHTML = 'Tienes que seleccionar una opción antes de continuar'
-            this.oTooltip.classList.add('visible')
-            return false
-        } else {
-            this.validarAnterior = true
-        }
-    }
-    validarSelect(){
-        console.log('pasa por validar select')
-        if (!this.oSelectSeleccion.options[this.oSelectSeleccion.selectedIndex].value){
-            this.oTooltipText.innerHTML = 'Tienes que seleccionar una opción antes de continuar'
-            this.oTooltip.classList.add('visible')
-            return false
-        } else {
-            this.validarAnterior = true
-        }
-    }
+    
     mostrarInputExtra(evento){
         console.log('Estoy en mostrarInputExtra: ',evento.target.value )
         if( evento.target.value == 'otros'){

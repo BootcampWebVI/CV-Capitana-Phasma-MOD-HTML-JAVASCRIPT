@@ -143,25 +143,25 @@
                 <ul>
                     <li id="tooltip"><p id="tooltip-text" class="tooltip"></p></li>
                     <li class="form-group">
-                        <input type="text" name="nombre" id="nombre" placeholder="Rellene su nombre completo">
+                        <input type="text" name="nombre" id="nombre" placeholder="Rellene su nombre completo" required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"">
                     </li>
                     <li class="form-group">
-                        <input type="email" name="email" id="email" placeholder="Dirección email">
+                        <input type="email" name="email" id="email" placeholder="Dirección email" required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
                     </li>
                     <li class="form-group">
-                        <input type="tel" name="telefono" id="telefono" placeholder="Teléfono">
+                        <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" required pattern="[0-9]{9}">
                     </li>
                     <li class="form-group">
                         <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="¿Algo que añadir?"></textarea>
                     </li>
                     <li class="form-group">
-                        <input type="checkbox" name="condiciones" id="condiciones">
+                        <input type="checkbox" name="condiciones" id="condiciones" required>
                         <label class="check" for="condiciones">Acepto las <a href="#">condiciones</a></label>
                     </li>
                     <li class="form-group">
                         <legend>Al grano. ¿Qué quieres de mí?</legend>
                         <div>
-                            <input type="radio" name="opciones" id="puesto" value="puesto">
+                            <input type="radio" name="opciones" id="puesto" value="puesto" required>
                             <label class="radio" for="puesto">Ofrecerte un puesto relevante en mi destacamento.</label>
                         </div>
                         <div>
@@ -171,7 +171,7 @@
                     </li>
                     <li class="form-group">
                         <label for="seleccion">¿Cómo me has conocido?</label>
-                        <select name="seleccion" id="seleccion">
+                        <select name="seleccion" id="seleccion" required>
                             <option value="" selected></option>
                             <option value="comandancia de la primera orden">Comandancia de la primera orden</option>
                             <option value="tropa de asalto">Tropa de asalto</option>
