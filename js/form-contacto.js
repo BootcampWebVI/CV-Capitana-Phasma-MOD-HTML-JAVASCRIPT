@@ -20,7 +20,8 @@ export class FormContacto {
             mensaje: '',
             condiciones: '',
             opciones: '',
-            seleccion: ''
+            seleccion: '',
+            otros: ''
         }
         
         this.oFormContacto.addEventListener('submit', this.leerContacto.bind(this)) 
@@ -47,7 +48,8 @@ export class FormContacto {
             mensaje: this.oTextoMensaje.value,
             condiciones: this.oCheckCondiciones.checked,
             opciones: this.getRadio(this.oRadioOpciones),
-            seleccion: this.oSelectSeleccion.options[this.oSelectSeleccion.selectedIndex].value
+            seleccion: this.oSelectSeleccion.options[this.oSelectSeleccion.selectedIndex].value,
+            otros: this.oSelectOtros.value
         }
     }
     getRadio(aNodos) {
@@ -60,25 +62,24 @@ export class FormContacto {
     
     validar() {
         console.log('pasa por validar')
-        this.validarNombre()
-        this.validarEmail()
-        this.validarTelefono()
-        this.validarTextarea(10) 
-        this.validarCheckbox()
-        this.validarSelect()
-        return true
+        if (this.validarNombre(this.validarEmail(this.validarTelefono()))){
+            return true
+        }
     }
-    validarNombre(){
+    validarNombre(validarSiguiente){
         console.log('pasa por validar nombre')
         if ( this.oInputNombre.value == null || this.oInputNombre.value.length == 0 || /^\s+$/.test(this.oInputNombre.value) ) {
             this.oTooltipText.innerHTML = 'El nombre es obligatorio'
             this.oTooltip.classList.add('visible')
+            console.log('devuelve nombre false')
             return false
         } else {
+            validarSiguiente()
+            console.log('devuelve nombre true')
             return true
         }
     }
-    validarEmail() {
+    validarEmail(validarSiguiente) {
         console.log('pasa por validar email')
         let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
          if ( !(regexEmail.test(this.oInputEmail.value)) ) {
@@ -86,6 +87,7 @@ export class FormContacto {
             this.oTooltip.classList.add('visible')
             return false
         } else {
+            validarSiguiente()
             return true
         }
     }
@@ -111,7 +113,7 @@ export class FormContacto {
             console.log('longitud array palabras: ', numeroPalabras)
             return false
         } else {
-            return true
+            this.validarAnterior = true
         }
     }
     validarCheckbox(){
@@ -121,7 +123,7 @@ export class FormContacto {
             this.oTooltip.classList.add('visible')
             return false
         } else {
-            return true
+            this.validarAnterior = true
         }
     }
     validarRadio(){
@@ -131,7 +133,7 @@ export class FormContacto {
             this.oTooltip.classList.add('visible')
             return false
         } else {
-            return true
+            this.validarAnterior = true
         }
     }
     validarSelect(){
@@ -141,7 +143,7 @@ export class FormContacto {
             this.oTooltip.classList.add('visible')
             return false
         } else {
-            return true
+            this.validarAnterior = true
         }
     }
     mostrarInputExtra(evento){
