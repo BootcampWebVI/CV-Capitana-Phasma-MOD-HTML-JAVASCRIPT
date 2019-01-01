@@ -26,6 +26,7 @@ export class FormContacto {
         
         this.oFormContacto.addEventListener('submit', this.leerContacto.bind(this)) 
         this.oSelectSeleccion.addEventListener('change', this.mostrarInputExtra.bind(this)) 
+        this.oTextoMensaje.addEventListener('change', this.validarTextarea.bind(this)) 
 
         
 
@@ -61,22 +62,25 @@ export class FormContacto {
     }
     
     validar() {
-        if (this.validarTextarea(10)){
+        if (this.validarTextarea()){
+            this.oTooltip.classList.remove('visible')
             return true
         }
     }
    
-    validarTextarea(maxNumeroPalabras){
+    validarTextarea(){
         console.log('pasa por validar textarea')
         let palabrasMensaje = this.oTextoMensaje.value
         let arrayPalabras = palabrasMensaje.split(" ")
         let numeroPalabras = arrayPalabras.length
+        let maxNumeroPalabras = 10
         if (numeroPalabras > maxNumeroPalabras){
-            this.oTooltipText.innerHTML = 'El mensaje no puede tener más de 10 palabras'
+            this.oTooltipText.setAttribute( 'title', 'El mensaje no puede tener más de 10 palabras')
             this.oTooltip.classList.add('visible')
             console.log('longitud array palabras: ', numeroPalabras)
             return false
         } else {
+            this.oTooltip.classList.remove('visible')
             return true
         }
     }
