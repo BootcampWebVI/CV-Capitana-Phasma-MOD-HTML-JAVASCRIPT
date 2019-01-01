@@ -110,6 +110,31 @@
     -webkit-animation-fill-mode:    backwards;
     -webkit-animation-delay:        0.5s;
 }
+.disolver {
+    animation-name:                 fundido;
+    animation-direction:            reverse;
+    animation-duration:             1s;
+    animation-timing-function:      cubic-bezier();
+    animation-fill-mode:            forwards;
+    animation-delay:                5s;
+    -moz-animation-name:            fundido;
+    -moz-animation-direction:       reverse;
+    -moz-animation-duration:        1s;
+    -moz-animation-timing-function: cubic-bezier();
+    -moz-animation-fill-mode:       forwards;
+    -moz-animation-delay:           5s;
+    -webkit-animation-name:         fundido;
+    -webkit-animation-direction:    reverse;
+    -webkit-animation-duration:     1s;
+    -webkit-animation-timing-function: cubic-bezier();
+    -webkit-animation-fill-mode:    forwards;
+    -webkit-animation-delay:        5s;
+}
+.disolver.ya {
+    animation-delay:                1s;
+    -moz-animation-delay:           1s;
+    -webkit-animation-delay:        1s;
+}
 /* ---------------------------- *\
       FIN Estilos animaciones 
 \* ---------------------------- */

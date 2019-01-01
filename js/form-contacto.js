@@ -12,6 +12,9 @@ export class FormContacto {
         this.oTooltip = document.querySelector('#tooltip')
         this.oTooltipText = document.querySelector('#tooltip-text')
         this.oSelectOtros = document.querySelector('#otros')
+        this.oAgradecer = document.querySelector('#agradecer')
+        this.oAgradecerText = document.querySelector('#agradecer-text')
+        this.oEnviar = document.querySelector('#enviar')
         
         this.oData = {
             nombre: '',
@@ -27,6 +30,7 @@ export class FormContacto {
         this.oFormContacto.addEventListener('submit', this.leerContacto.bind(this)) 
         this.oSelectSeleccion.addEventListener('change', this.mostrarInputExtra.bind(this)) 
         this.oTextoMensaje.addEventListener('change', this.validarTextarea.bind(this)) 
+        this.oEnviar.addEventListener('mouseout', this.eliminarDisolver.bind(this)) 
 
         
 
@@ -37,6 +41,7 @@ export class FormContacto {
         objetoEvento.preventDefault()
         if (this.validar()) {
             this.guardarDatos()
+            this.agradecerEnvio()
             console.log('Pasa por guardar datos: ', this.oData)
         }
     }
@@ -93,4 +98,15 @@ export class FormContacto {
         }
     }
 
+    agradecerEnvio(){
+        console.log('pasa por agradecer')
+        this.oAgradecer.classList.remove('visible', 'disolver')
+        this.oAgradecerText.setAttribute( 'title', 'Gracias por unirte a mi red de malvados contactos. Espero que hayas leído mis condiciones.')
+        this.oAgradecer.classList.add('visible', 'disolver')
+        this.oAgradecer.classList.remove('ya')
+    }
+    eliminarDisolver(){
+        console.log('pasa por eliminarDisolver')
+        this.oAgradecer.classList.add('ya')
+    }
 }
