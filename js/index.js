@@ -1,5 +1,6 @@
 import { FormContacto} from './form-contacto.js'
 import { Menu } from './menu.js'
+import { Footer } from './footer.js'
 
 /**
  * 
@@ -11,33 +12,17 @@ import { Menu } from './menu.js'
  *      compartidos con la otra página del sitio
  *  - la clase FormCoctacto, responsable del 
  *      formulario de contactos
+ *  - la clase Footer, responsable de los estilos de los botones del footer
  * 
  */
 
 export class Index {
     constructor() {
         // elementos del DOM
-        //this.oInputName = document.querySelector('#name')
         this.oMenus = new Menu()
         this.oFormContact = new FormContacto()
+        this.oFooter = new Footer()
         console.log(this)
-        //this.defineEventListeners()
     }
-/*
-    defineEventListeners() {
-        this.oInputName.addEventListener('change', this.probarInput.bind(this))
-        this.oInputName.addEventListener('input', this.probarInput.bind(this))
-    }
-
-    probarInput(objetoEvento) {
-        if(objetoEvento.type == "change") {
-            console.log('change')
-            console.dir(objetoEvento.target.value)
-        } else if (objetoEvento.type == "input") {
-            console.log('input')
-            console.dir(objetoEvento.target.value)
-        }
-    }
-    */
 }
 

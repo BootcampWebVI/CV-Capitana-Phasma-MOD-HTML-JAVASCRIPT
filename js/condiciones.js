@@ -1,4 +1,5 @@
 import { Menu } from './menu.js'
+import { Footer } from './footer.js'
 
 /**
  * 
@@ -13,5 +14,6 @@ import { Menu } from './menu.js'
 export class Condiciones {
     constructor() {
         this.oMenus = new Menu()
+        this.oFooter = new Footer()
     }
 }

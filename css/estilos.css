@@ -32,14 +32,20 @@
         margin-right:               0; 
      }     
 }
-@keyframes aparece {
+@keyframes crece {
     0%{
         opacity:                    0;
-        font-size:                  0.7em;
     }  
     100%{
-        opacity:                    1;
         font-size:                  1rem;
+     }     
+}
+@keyframes fundido {
+    0%{
+        opacity:                    0;
+    }  
+    100%{
+        opacity:                    0.9;
      }     
 }
 .entradaDer {
@@ -70,18 +76,35 @@
     -webkit-animation-timing-function: cubic-bezier();
     -webkit-animation-fill-mode:    backwards;
 }
-.aparece {
-    animation-name:                 aparece;
+.crece {
+    animation-name:                 crece;
     animation-duration:             2s;
     animation-timing-function:      cubic-bezier();
     animation-fill-mode:            backwards;
     animation-delay:                0.5s;
-    -moz-animation-name:            aparece;
+    -moz-animation-name:            crece;
     -moz-animation-duration:        2s;
     -moz-animation-timing-function: cubic-bezier();
     -moz-animation-fill-mode:       backwards;
     -moz-animation-delay:           0.5s;
-    -webkit-animation-name:         aparece;
+    -webkit-animation-name:         crece;
+    -webkit-animation-duration:     2s;
+    -webkit-animation-timing-function: cubic-bezier();
+    -webkit-animation-fill-mode:    backwards;
+    -webkit-animation-delay:        0.5s;
+}
+.fundido {
+    animation-name:                 fundido;
+    animation-duration:             2s;
+    animation-timing-function:      cubic-bezier();
+    animation-fill-mode:            backwards;
+    animation-delay:                0.5s;
+    -moz-animation-name:            fundido;
+    -moz-animation-duration:        2s;
+    -moz-animation-timing-function: cubic-bezier();
+    -moz-animation-fill-mode:       backwards;
+    -moz-animation-delay:           0.5s;
+    -webkit-animation-name:         fundido;
     -webkit-animation-duration:     2s;
     -webkit-animation-timing-function: cubic-bezier();
     -webkit-animation-fill-mode:    backwards;
@@ -115,13 +138,15 @@ body {
     border-radius:                  var(--radius);
 }
 main strong, 
-main p>a:link {
+main p>a:link,
+form label>a:link {
     color:                          var(--color);
     font-weight:                    bold;
     text-decoration:                none
 }
-main p>a:visited {
-    color:                          var(--color);
+main p>a:visited,
+form label>a:visited {
+    color:                          var(--color) !important;
     text-decoration:                underline !important;
 }
 iframe {
@@ -274,6 +299,7 @@ nav a.hide {
     padding:                        0.3rem 0.2rem;
     color:                          var(--color-fondo);
     text-decoration:                none;
+    width:                          100%;
 }
 .desplegable ul a.activo {
     color:                          var(--color-texto);
@@ -339,6 +365,10 @@ footer ul li {
     margin-bottom:                  0.5rem;
     margin-top:                     0.5rem;
 }
+footer ul li a:link,
+footer ul li a:visited{
+    color:                          var(--color);
+}
 .main-wrapper>footer {
     border:                         0;
     display:                        flex;
@@ -357,6 +387,7 @@ footer ul li {
 .main-wrapper>footer nav ul li {
     display:                        inline-block;
 }
+
 /* -------------------------------- *\
           FIN Estilos footer 
 \* -------------------------------- */
@@ -473,9 +504,24 @@ form button:active {
     border-color:                   var(--color) transparent;
     border-width:                   0.75rem 0.75rem 0 0.75rem;
 }
+
 /* -------------------------------- *\
     FIN Estilos formulario contacto
 \* -------------------------------- */
+
+/* -------------------------------- *\
+        Estilos condiciones
+\* -------------------------------- */
+
+section.home.condiciones .home-wrapper {
+    background-color: var(--color-texto);
+    border-radius: var(--radius);
+    opacity: 0.9;
+    margin: 3rem;
+    padding: 1rem;
+}
+
+
 /* -------------------------------- *\
         Estilos media queries
 \* -------------------------------- */
