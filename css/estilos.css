@@ -222,6 +222,9 @@ section.home header h2 {
     font-size:                      2.5rem;
     line-height:                    2.5rem;
 }
+section.home header h2 span {
+    display:                        block;
+}
 .subtitulo {
     margin-bottom:                  0.5rem;
     font-weight:                    bold;
@@ -370,30 +373,28 @@ section.home {
         FIN Estilos secciones 
 \* -------------------------------- */
 /* -------------------------------- *\
-            Estilos footer 
+            Estilos footers y aside
 \* -------------------------------- */
-footer{
+footer, aside{
     margin-top:                     1rem; 
     padding:                        1.5rem;
     font-size:                      0.9rem;
     border:                         1px double var(--color);
     border-radius:                  var(--radius);
 }
-footer h2 {
+aside h2 {
     font-size:                      1.5rem;
     padding-bottom:                 0.5rem;
 }
-footer ul {
+aside ul {
     margin-bottom:                  1rem;
 }
-footer ul li {
+aside ul li {
     margin-bottom:                  0.5rem;
     margin-top:                     0.5rem;
 }
-footer ul li a:link,
-footer ul li a:visited{
-    color:                          var(--color);
-}
+
+/* footer principal*/
 .main-wrapper>footer {
     border:                         0;
     display:                        flex;
@@ -411,6 +412,10 @@ footer ul li a:visited{
 }
 .main-wrapper>footer nav ul li {
     display:                        inline-block;
+}
+footer ul li a:link,
+footer ul li a:visited{
+    color:                          var(--color);
 }
 
 /* -------------------------------- *\
@@ -503,8 +508,9 @@ form button:active {
 }
 .tooltip{
     position:                       absolute;
+    left:                           0;
     z-index:                        10;
-    width:                          80%;
+    width:                          70%;
 }
 .tooltip::after {
     position:                       absolute;

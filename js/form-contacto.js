@@ -32,8 +32,6 @@ export class FormContacto {
         this.oTextoMensaje.addEventListener('change', this.validarTextarea.bind(this)) 
         this.oEnviar.addEventListener('mouseout', this.eliminarDisolver.bind(this)) 
 
-        
-
     }
     
     leerContacto(objetoEvento) {

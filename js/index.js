@@ -22,7 +22,6 @@ export class Index {
         this.oMenus = new Menu()
         this.oFormContact = new FormContacto()
         this.oFooter = new Footer()
-        console.log(this)
     }
 }
 

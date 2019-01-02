@@ -14,11 +14,12 @@ export class Menu {
         this.aMenuItems.forEach(
             (item) => { item.addEventListener('click', this.activarItem.bind(this))}
         )
-        window.addEventListener('scroll', this.cambioEstiloItem.bind(this))
+        window.addEventListener('scroll', this.cambioEstiloItem.bind(this), {passive:true})
        
         this.prepararNavegacion()
     }
     toggleMenu(objetoEvento) {
+        console.log('Pasa por toggle')
         objetoEvento.preventDefault()
         // cambia su visibilidad
         objetoEvento.target.classList.toggle('hide')
@@ -48,10 +49,12 @@ export class Menu {
              menuItem = 1
         } else if (pageOffset >= this.oOffsets['#estudios'] && pageOffset < this.oOffsets['#experiencia']) {
             menuItem = 2
-        } else if (pageOffset >= this.oOffsets['#experiencia'] && pageOffset < this.oOffsets['#datos-interes']) {
+        } else if (pageOffset >= this.oOffsets['#experiencia'] && pageOffset < this.oOffsets['#sobre-mi']) {
             menuItem = 3
-        } else {
+        } else if (pageOffset >= this.oOffsets['#sobre-mi'] && pageOffset < this.oOffsets['#contacto']) {
             menuItem = 4
+        } else {
+            menuItem = 5
         }
         this.aMenuItems.forEach(
             (item) => item.classList.remove('activo')
